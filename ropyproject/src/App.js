@@ -1,32 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
-import Login from './paginas/auth/login'; // Asegúrate de que la ruta sea correcta
+import React, {Fragment} from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './paginas/auth/login.js';
+import Register from './paginas/auth/register.js';
+import './styles/adminlte.css';
+import './styles/adminlte.css.map';
+import './styles/adminlte.min.css';
+import './styles/adminlte.min.css.map';
 
 function App() {
   return (
+    <Fragment>
     <Router>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <link
-            className="App-link"
-            to="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </link>
-        </header>
-        <Routes>
-          <Route path="/" element={<Login />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" exact element={<Login/>}/>
+        <Route path="/register" exact element={<Register/>}/>
+      </Routes>
     </Router>
+    </Fragment>
   );
 }
 
